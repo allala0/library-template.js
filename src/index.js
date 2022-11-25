@@ -1,11 +1,11 @@
-// import {Mesh} from 'three';
+import './styles/main.css';
 
 class App{
-    constructor(){
+    constructor () {
         console.log('new app');
     }
 }
 
-console.log("EZ")
+console.log('test');
 
-export {App};
+export { App };
