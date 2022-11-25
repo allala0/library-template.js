@@ -541,6 +541,7 @@ var App = /*#__PURE__*/_createClass(function App() {
   _classCallCheck(this, App);
   console.log('new app');
 });
+console.log('test');
 
 })();
 
