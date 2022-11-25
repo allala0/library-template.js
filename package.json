@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run dev",
-    "build": "cdir ./dist && webpack build",
-    "dev": "webpack serve",
+    "start": "npm run run",
+    "build": "cdir ./build && webpack build",
+    "build-module": "cdir ./build && webpack build --env module",
+    "build-web": "cdir ./build && webpack build --env web",
+    "dev": "servez -p 3000 --ssl",
+    "run": "webpack serve",
     "lint": "eslint src --ext js --fix"
   },
   "author": "",
@@ -24,6 +27,7 @@
     "eslint-plugin-n": "^15.5.1",
     "eslint-plugin-promise": "^6.1.1",
     "html-webpack-plugin": "^5.5.0",
+    "servez": "^1.14.1",
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
     "webpack-bundle-analyzer": "^4.7.0",

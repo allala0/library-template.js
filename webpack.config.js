@@ -1,19 +1,23 @@
 const path = require('path');
 
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const isDevelopment = false;
-const isModule = true;
-const name = 'testlib';
-const distFolder = 'dist';
+const isModuleByDefault = false;
 
-const getBuildConfig = type => {
+const name = 'testlib';
+const buildDirectory = 'build';
+const isDevelopment = false;
+const useBundleAnalyzerInDevelopmentMode = false;
+
+const isWeb = process.argv.indexOf('web') > -1;
+const isModule = process.argv.indexOf('module') > -1 || !isWeb && isModuleByDefault;
+
+const getHtmlConfig = type => {
     return {
         devServer: {
             static: {
-                directory: path.resolve(__dirname, distFolder)
+                directory: path.resolve(__dirname, buildDirectory)
             },
             port: 3000,
             open: true,
@@ -29,7 +33,7 @@ const getBuildConfig = type => {
                 inject: type !== 'module',
                 ...(type === 'module' ?{scriptLoading: 'module'} : {})
             }),
-            ...(isDevelopment ? [new BundleAnalyzerPlugin()] : [])
+            ...(isDevelopment && useBundleAnalyzerInDevelopmentMode ? [new BundleAnalyzerPlugin()] : [])
         ]
     }
 };
@@ -64,33 +68,34 @@ const commonConfig = {
     }
 };
 
-const getConfig = (type, build=false) => {
-    let filename;
+const getConfig = (type) => {
+    let filename = name;
     let isMin = type === 'min.js';
+    let ext;
 
-    if(type === 'module') filename = name + '.module.js';
-    else if(type === 'js') filename = name + '.js';
-    else if(type === 'min.js') filename = name + '.min.js';
-    else if(type === 'commonjs') filename = name + '.cjs';
+    if(type === 'module') ext = '.module.js';
+    else if(type === 'js') ext = '.js';
+    else if(type === 'min.js') ext = '.min.js'
+    else if(type === 'commonjs') ext = '.cjs';
     else return;
 
     if(type === 'js' || type === 'min.js') type = 'global';
 
     return {
-        ...(build ? getBuildConfig(type) : {}),
         ...commonConfig,
-        experiments: {
+        ...(!isModule ? getHtmlConfig(type) : {}),
+        ...(type === 'module' ?{experiments: {
             outputModule: true
-        },
+        }} : {}),
         entry: {
            [filename]: path.resolve(__dirname, 'src/index.js')
         },
         output: {
-            path: path.resolve(__dirname, distFolder),
-            filename: '[name]',
+            path: path.resolve(__dirname, buildDirectory),
+            filename: '[name]' + (isDevelopment ? '[contenthash]' : '') + ext,
             ...(isModule ? {
             library: {
-                name: type === 'module' ? undefined : name,
+                ...( type === 'module' ? {} : {name: name}),
                 type: type
             },
             } : {})
@@ -103,7 +108,7 @@ const getConfig = (type, build=false) => {
 
 module.exports = isModule ? [
     getConfig('min.js'),
-    getConfig('module', true),
+    getConfig('module'),
     getConfig('js'),
     getConfig('commonjs')
-] : getConfig('min.js', true);
+] : getConfig('min.js');
