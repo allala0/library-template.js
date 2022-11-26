@@ -35,22 +35,22 @@ module.exports = (env, argv) => {
                     }
                 },
                 {
-                    test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                    type: 'asset/resource'
-                },
-                {
                     test: /\.s[ac]ss$/i,
                     use: [
                       "style-loader",
                       "css-loader",
                       "sass-loader",
                     ],
+                },
+                {
+                    test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                    type: 'asset/resource'
                 }
             ]
         }
     };
     
-    const getConfig = (type) => {
+    const getConfig = type => {
         let filename = NAME;
         let isMin = type === 'min.js';
         let ext;
