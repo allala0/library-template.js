@@ -7,13 +7,17 @@ const BUILD_DIRECTORY = 'build';
 
 const USE_SOURCE_MAP_IN_DEVELOPMENT = true;
 const USE_CONTENT_HASH_IN_DEVELOPMENT = true;
-const USE_BUNDLE_ANALYZER_IN_DEVELOPMENT = true;
+const USE_BUNDLE_ANALYZER_IN_DEVELOPMENT = false;
 const BUILD_AS_MODULE = process.argv.indexOf('module') > -1;
 
 module.exports = (env, argv) => {
     const IS_DEVELOPMENT = argv.mode === 'development';
 
     const commonConfig = {
+        devServer: {
+            magicHtml: true,
+            historyApiFallback: true,
+         },
         ...(USE_SOURCE_MAP_IN_DEVELOPMENT && IS_DEVELOPMENT ? {devtool: 'source-map'} : {}),
         module: {
             rules: [
@@ -84,6 +88,7 @@ module.exports = (env, argv) => {
             output: {
                 path: path.resolve(__dirname, BUILD_DIRECTORY),
                 filename: '[name]' + (USE_CONTENT_HASH_IN_DEVELOPMENT && IS_DEVELOPMENT ? '[contenthash]' : '') + ext,
+                assetModuleFilename: '[name][ext]',
                 ...(BUILD_AS_MODULE ? {
                 library: {
                     ...(type === 'module' ? {} : {name: NAME}),
