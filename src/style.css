@@ -1,0 +1,33 @@
+body{
+    background-color: white;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-items{
+    list-style: none;
+    display: flex;
+}
+
+.nav-items > a{
+    padding: 10px;
+    cursor: pointer;
+    color: black;
+}
+
+.logo{
+    width: 100px;
+}
+
+.overlay{
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
