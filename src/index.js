@@ -1,14 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import './style.css';
 
-const root = document.getElementById('root');
-
-function App(){
-    return (
-        <div>
-            Hello world
-        </div>
-    );
+export default class Test{
+    
 }
-
-ReactDOM.createRoot(root).render(<App />);
