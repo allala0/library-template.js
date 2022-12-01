@@ -1,5 +1,7 @@
 import './style.css';
 
-export default class Test{
-    
+export default class Propmt{
+    constructor(message){
+        console.log(message);
+    }
 }

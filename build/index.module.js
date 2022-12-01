@@ -480,7 +480,7 @@ var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "Z": () => (/* binding */ Test)
+  "Z": () => (/* binding */ Propmt)
 });
 
 // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
@@ -537,8 +537,9 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Test = /*#__PURE__*/_createClass(function Test() {
-  _classCallCheck(this, Test);
+var Propmt = /*#__PURE__*/_createClass(function Propmt(message) {
+  _classCallCheck(this, Propmt);
+  console.log(message);
 });
 
 })();

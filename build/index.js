@@ -1,10 +1,11 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
+/******/ 	// runtime can't be in strict mode because a global variable is assign and maybe created.
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 335:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
@@ -27,6 +28,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "body{background-color:#06003a;width:10
 /***/ 645:
 /***/ ((module) => {
 
+"use strict";
 
 
 /*
@@ -118,6 +120,7 @@ module.exports = function (cssWithMappingToString) {
 /***/ 81:
 /***/ ((module) => {
 
+"use strict";
 
 
 module.exports = function (i) {
@@ -129,6 +132,7 @@ module.exports = function (i) {
 /***/ 379:
 /***/ ((module) => {
 
+"use strict";
 
 
 var stylesInDOM = [];
@@ -239,6 +243,7 @@ module.exports = function (list, options) {
 /***/ 569:
 /***/ ((module) => {
 
+"use strict";
 
 
 var memo = {};
@@ -284,6 +289,7 @@ module.exports = insertBySelector;
 /***/ 216:
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -301,6 +307,7 @@ module.exports = insertStyleElement;
 /***/ 565:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -319,6 +326,7 @@ module.exports = setAttributesWithoutAttributes;
 /***/ 795:
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -395,6 +403,7 @@ module.exports = domAPI;
 /***/ 589:
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -470,17 +479,6 @@ module.exports = styleTagTransform;
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/nonce */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nc = undefined;
@@ -488,14 +486,13 @@ module.exports = styleTagTransform;
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
+"use strict";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ Test)
+  "default": () => (/* binding */ Propmt)
 });
 
 // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
@@ -552,12 +549,13 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Test = /*#__PURE__*/_createClass(function Test() {
-  _classCallCheck(this, Test);
+var Propmt = /*#__PURE__*/_createClass(function Propmt(message) {
+  _classCallCheck(this, Propmt);
+  console.log(message);
 });
 
 })();
 
-self.index = __webpack_exports__;
+Module = __webpack_exports__["default"];
 /******/ })()
 ;

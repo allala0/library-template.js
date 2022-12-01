@@ -5,11 +5,10 @@
   "main": "./build/index.min.js",
   "scripts": {
     "start": "npm run dev",
-    "dev": "webpack-dev-server --config webpack.web.dev.js",
-    "dev-module": "npm run build-module && npm run explorer",
+    "dev": "npm run build-module && npm run explorer",
     "explorer": "servez -p 8080 --ssl --hidden --no-index",
-    "build": "cdir build && webpack build --config webpack.web.prod.js",
-    "build-module": "cdir build && webpack build --config webpack.module.prod.js --env min && webpack build --config webpack.module.prod.js --env js && webpack build --config webpack.module.prod.js --env module && webpack build --config webpack.module.prod.js --env cjs",
+    "example": "http-server . -o /examples/example.html",
+    "build": "cdir build && webpack build --config webpack.prod.js --env min && webpack build --config webpack.prod.js --env js && webpack build --config webpack.prod.js --env module && webpack build --config webpack.prod.js --env cjs",
     "lint": "eslint src --ext js",
     "lint-fix": "eslint src --ext js --fix"
   },
@@ -38,5 +37,8 @@
     "webpack-cli": "^5.0.0",
     "webpack-dev-server": "^4.11.1",
     "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
   }
 }
