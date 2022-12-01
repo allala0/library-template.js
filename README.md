@@ -1,7 +1,7 @@
-<h1>node.js-dev-template</h1>
+<h1>library-template.js.git</h1>
 
-## What is node.js-dev-template
-It is template for creating both web applications and libraries with Javacript.
+## What is library-template.js.git
+It is template for creating libraries with Javacript.
 
 Creator: <b>Artur Brytkowski</b> 
  - <a target="_blank" href="https://www.fiverr.com/arturbrytkowski">Fiverr</a>
