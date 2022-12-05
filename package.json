@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "npm run build && npm run explorer",
+    "prod": "webpack-dev-server --config webpack.prod.js",
     "explorer": "servez -p 8080 --ssl --hidden --no-index",
     "example": "http-server . -o /examples/example.html",
     "build": "cdir build && webpack build --config webpack.prod.js --env min && webpack build --config webpack.prod.js --env js && webpack build --config webpack.prod.js --env module && webpack build --config webpack.prod.js --env cjs",
