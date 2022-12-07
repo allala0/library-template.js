@@ -34,7 +34,7 @@ module.exports = {
         ]
     },
     entry: {
-        [EXPORT_NAME]: path.resolve(__dirname, ENTRY_DIR, ENTRY_FILE + '.' + ENTRY_EXT)
+        [ENTRY_FILE]: path.resolve(__dirname, ENTRY_DIR, ENTRY_FILE + '.' + ENTRY_EXT)
     },
     output: {
         path: path.resolve(__dirname, BUILD_DIRECTORY),
@@ -44,8 +44,8 @@ module.exports = {
         }
     },
     externals: [
-        // {'three': type === 'module' ? 'three' : 'THREE'},
-        // ...(type === 'module' ? [/^three\/addons\//] : [])
+        {'three': type === 'module' ? 'three' : 'THREE'},
+        ...(type === 'module' ? [/^three\/addons\//] : [])
     ],
     ...(type === 'module' ? {experiments: {outputModule: true}} : {}),
     optimization: {
